@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import gql from 'graphql-tag'
 import { Query } from 'react-apollo'
-import NameItem from './NameItem'
+
 const NAMES_QUERY = gql`
     query NamesQuery {
         name {
@@ -21,18 +21,18 @@ function Names() {
     return (
         <div className="ui container">
             <div className="ui header" style={{margin: '25px'}}> 
-                Name List
+                List Names
             </div>
             <Query query={NAMES_QUERY}>
                 {
                     ({ loading, error, data }) => {
+                        console.log('data', data)
                         if(loading) return <h4>Loading...</h4>
                         if(error) console.log(error)
-                        console.log(data)
                         return <div className="ui four stackable cards">
                         {
                             data.name.map(n => (
-                                <div className="card">
+                                <div className="card" key={n.name}>
                                     <div className="content">
                                         <div className="center aligned header"> </div>
                                         <div className="center aligned description" style={{ color: '#8B0000', }}>

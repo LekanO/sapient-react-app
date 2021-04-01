@@ -1,10 +1,10 @@
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
-import Name from './components/Names'
+import Name from './components/Names/Names'
 import './App.css';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:5000/graphql'
+  uri: 'https://sapient-node-deploy.herokuapp.com/graphql'
 })
 
 
