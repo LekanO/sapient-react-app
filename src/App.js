@@ -7,7 +7,6 @@ const client = new ApolloClient({
   uri: 'https://sapient-node-deploy.herokuapp.com/graphql'
 })
 
-
 function App() {
   return (
     <ApolloProvider client={client}>
